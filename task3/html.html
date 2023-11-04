@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    input {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+    span {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Temperature Converter</h1>
+
+    <input type="number" id="inputCelsius" placeholder="Celsius">
+    <span id="outputFahrenheit"></span> °F
+
+    <input type="number" id="inputFahrenheit" placeholder="Fahrenheit">
+    <span id="outputCelsius"></span> °C
+
+    <script>
+      function temperatureConverter() {
+        // Get the values of the input fields
+        var celsius = parseFloat(document.getElementById("inputCelsius").value);
+        var fahrenheit = parseFloat(document.getElementById("inputFahrenheit").value);
+
+        // Convert the values to Celsius and Fahrenheit
+        var celsiusToFahrenheit = celsius * 1.8 + 32;
+        var fahrenheitToCelsius = (fahrenheit - 32) / 1.8;
+
+        // Set the output values
+        document.getElementById("outputFahrenheit").innerHTML = celsiusToFahrenheit.toFixed(2);
+        document.getElementById("outputCelsius").innerHTML = fahrenheitToCelsius.toFixed(2);
+      }
+
+      // Listen for changes to the input fields
+      document.getElementById("inputCelsius").addEventListener("input", temperatureConverter);
+      document.getElementById("inputFahrenheit").addEventListener("input", temperatureConverter);
+    </script>
+  </div>
+</body>
+</html>
